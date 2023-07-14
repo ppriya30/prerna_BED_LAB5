@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> 
+
+<link rel="stylesheet" href="MyStyle.css" type="text/css">
+
+<title>Update Employee</title>
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+ <a class="navbar-brand" href="#">Employee Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/list}">Employee Management </a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+	<div class="container">
+	
+	<div class = "col-lg-6 col-sm-6 container justify-content-center card">
+
+		<h3>Employee Management System</h3>
+		
+		<hr>
+
+		<p class="h4 mb-4">Update Employee</p>
+
+		<form action="#" th:action="@{/Employees/save}" th:object="${employees}"
+			method="POST">
+
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{emp_id}" />
+
+			<h7 >Employee First Name</h7>
+			<input type="text" th:field="*{f_name}"
+				class="form-control mb-4 col-4" placeholder="Enter First Name">
+			<h7>Employee Last Name</h7>
+			<input type="text" th:field="*{l_name}"
+				class="form-control mb-4 col-4" placeholder="Enter Last Name">
+			<h7>Employee Email</h7>
+			<input type="text" th:field="*{email}"
+				class="form-control mb-4 col-4" placeholder="Enter Email">
+
+			<button type="submit" class="btn btn-info col-2">Save</button>
+
+		</form>
+
+		<hr>
+		<a th:href="@{/Employees/list}">Back to Employees List</a>
+
+	</div>
+	</div>
+	
+</body>
+
+</html>
